@@ -20,7 +20,7 @@ exports.checkBody = (req,res,next) => {
     console.log(name,price);
     if(!name || !price){ // 400 bad req
         return res.status(400).json({
-            status:'success',
+            status:'fail',
             message:'A tour must have price and name'
         });
     }
@@ -29,7 +29,7 @@ exports.checkBody = (req,res,next) => {
 
 exports.getAllTours = (req,res)=>{
     res.status(200).json({
-        status:'fail',
+        status:'success',
         results:tours.length,
         data:{
             tours
