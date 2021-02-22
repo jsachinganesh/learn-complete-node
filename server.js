@@ -43,3 +43,10 @@ process.on('unhandledRejection',(err)=>{
     process.exit(1);
   });
 });
+
+process.on('SIGNTERM',()=>{
+  console.log('SIGNTERM RECEIVED. Shutting down slowing');
+  server.close(()=>{
+    process.exit(1);
+  });
+})
